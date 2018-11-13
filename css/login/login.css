@@ -1,0 +1,236 @@
+@charset "UTF-8";
+html,
+body {
+	width: 100%;
+	height: 100%;
+	background: #ccc;
+	background-size: 100%;
+}
+
+body {
+	background: url('../../image/login/backVague.jpg') no-repeat center;
+	background-size: 100% 100%;
+	position: relative;
+}
+
+.loginBox {
+	width: 4rem;
+	height: 3rem;
+	position: absolute;
+	right: 2.7rem;
+	top: 50%;
+	margin-top: -1.5rem;
+}
+
+.loginBox>h2 {
+	width: 100%;
+	height: 0.36rem;
+	font-size: 0.36rem;
+	color: #ffffff;
+	position: absolute;
+	left: 0;
+	top: -0.94rem;
+	line-height: 0.36rem;
+}
+
+.loginBox>div {
+	width: 100%;
+	height: 100%;
+	background: url('../../image/login/login.png') no-repeat center;
+	background-size: 100% 100%;
+}
+
+.loginBox>.QRcode {
+	display: none;
+}
+
+.loginBox>div>.codeBtn {
+	width: 0.4rem;
+	height: 0.4rem;
+	border-radius: 50%;
+	position: absolute;
+	left: 50%;
+	top: -0.2rem;
+	margin-left: -0.2rem;
+	cursor: pointer;
+}
+
+.loginBox>div>.codeBtn>.codeImg {
+	width: 100%;
+	height: 100%;
+	background: url('../../image/login/qrcode.png') no-repeat center;
+	background-size: 0.2rem 0.2rem;
+}
+
+@keyframes rotation {
+	from {
+		transform: rotateY(0deg);
+		-webkit-transform: rotateY(0deg);
+		/* Safari 和 Chrome */
+		-moz-transform: rotateY(0deg);
+	}
+	to {
+		transform: rotateY(180deg);
+		-webkit-transform: rotateY(180deg);
+		/* Safari 和 Chrome */
+		-moz-transform: rotateY(180deg);
+	}
+}
+
+.loginBox>div>.codeBtn:hover>.codeImg {
+	animation: rotation 1s;
+	-webkit-animation: rotation 1s;
+	/* Safari 和 Chrome */
+}
+
+.loginBox>div>.codeBtn>.codeImg::after {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	border-radius: 50%;
+	background: url('../../image/login/qrcode.png') no-repeat center fixed;
+	background-size: 0.2rem 0.2rem;
+	-webkit-filter: blur(0px);
+	background: hsla(0, 0%, 100%, .1);
+	z-index: 0;
+}
+
+.loginBox>div>.codeBtn>span {
+	display: block;
+	border: 0;
+	width: 0.7rem;
+	height: 0.18rem;
+	background: url('../../image/login/down.png') no-repeat center;
+	background-size: 100% 100%;
+	position: absolute;
+	left: 0.36rem;
+	top: -0.1rem;
+}
+
+.loginCon {
+	box-sizing: border-box;
+	padding: 0.7rem 0.4rem 0;
+}
+
+.loginCon>.userInfo {
+	width: 100%;
+	height: 100%;
+}
+
+.userInfo>div {
+	width: 100%;
+	height: 0.38rem;
+	margin-bottom: 0.23rem;
+	box-sizing: border-box;
+	border: 0.01rem solid rgba(255, 255, 255, 0.2);
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 0.05rem;
+	display: -webkit-flex;
+	/* Safari */
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.userInfo>div>label {
+	width: 0.37rem;
+	border-right: 0.01rem solid rgba(255, 255, 255, 0.2);
+}
+
+.userInfo>div>.user {
+	background: url('../../image/login/username.png') no-repeat center;
+	background-size: 0.18rem 0.18rem;
+}
+
+.userInfo>div>.pass {
+	background: url('../../image/login/password.png') no-repeat center;
+	background-size: 0.2rem 0.09rem;
+}
+
+.userInfo>div>input {
+	flex: 1;
+	background: none;
+	height: 100%;
+	border: 0;
+	box-sizing: border-box;
+	padding-left: 0.15rem;
+	line-height: 0.36rem;
+	font-size: 0.14rem;
+	color: #ffffff;
+	caret-color: #ffffff;
+}
+.userInfo>div>input:-webkit-autofill,.userInfo>div>input:-webkit-autofill:hover,.userInfo>div>input:-webkit-autofill:focus{
+	background: none !important;
+	 box-shadow: 0 0 0px 1000px rgba(136, 122, 119, 0.8) inset !important;
+ }
+.userInfo>div>input[type="password"] {
+	font-size: 0.2rem;
+	caret-color: #ffffff;
+}
+.userInfo>div>input::first-line {
+	color: #ffffff;
+}
+
+.userInfo>div:nth-of-type(2) {
+	margin-bottom: 0.45rem;
+}
+
+#submit {
+	border: 0;
+	width: 100%;
+	height: 0.42rem;
+	box-sizing: border-box;
+	border: 0.01rem solid rgba(255, 255, 255, 0.2);
+	background: rgba(0, 0, 0, 0.2);
+	text-align: center;
+	line-height: 0.42rem;
+	font-size: 0.16rem;
+	color: #ffffff;
+	cursor: pointer;
+	border-radius: 0.05rem;
+}
+
+
+/*二维码*/
+
+.QRcode {
+	box-sizing: border-box;
+	padding: 0.5rem 1.1rem 0;
+}
+
+.QRcode>dl {
+	width: 100%;
+	height: 100%;
+}
+
+.QRcode>dl>dt {
+	width: 100%;
+	height: 1.87rem;
+	margin-bottom: 0.2rem;
+}
+
+.QRcode>dl>dt>img {
+	width: 100%;
+	height: 100%;
+}
+
+.QRcode>dl>dd {
+	width: 100%;
+	height: 0.2rem;
+	line-height: 0.2rem;
+	font-size: 0.18rem;
+	color: #fff;
+	text-align: center;
+}
+
+.userInfo>div>input:focus {
+	border: 1px solid #23f9e2;
+}
+
+#submit:hover {
+	border: 1px solid #23f9e2;
+}

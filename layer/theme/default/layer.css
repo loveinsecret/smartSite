@@ -1,0 +1,133 @@
+.layui-layer-shade {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:rgba(0,0,0,0.8);
+    position: absolute;
+    _height: expression(document.body.offsetHeight+"px");
+}
+.layui-layer {
+  position: absolute;
+    width: 5rem !important;
+    height: 3rem;
+    -webkit-overflow-scrolling: touch;
+    top:50%;
+    left:50%;
+    /* margin-left: -2.5rem;
+    margin-top:-1.5rem; */
+    background-color: #fff;
+    -webkit-background-clip: content;
+    border-radius: 0.06rem;
+	  box-shadow: 0 0.03rem 0.08rem 0.01rem rgba(0,45,74,0.32);
+}
+.layui-layer-title {
+    padding:0;
+    height: 0.69rem;
+    line-height: 0.69rem;
+    border-bottom: 1px solid #eee;
+    font-size: 0.18rem;
+    color: #fff;
+    overflow: hidden;
+    text-align: center;
+    background-color: #e73838;
+    border-radius: 0.06rem 0.06rem 0 0;
+}
+.layui-layer-dialog .layui-layer-content {
+    position: relative;
+    padding: 0;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    word-break: break-all;
+    overflow: hidden;
+    font-size: 0.16rem;
+    color:#333333;
+    text-align: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-bottom: 0.01rem solid #dadada;
+}
+.layui-layer-btn {
+    text-align: right;
+    padding: 0;
+    pointer-events: auto;
+    user-select: none;
+    -webkit-user-select: none;
+    height: 0.7rem;
+    background:#fff url('../../../image/common/shortLine.png') no-repeat center;
+    background-size: 0.02rem 0.14rem;
+}
+.layui-layer-btn a {
+    height: 0.7rem;
+    width: 50%;
+    line-height: 0.7rem;
+    margin:0;
+    padding: 0;
+    float: right;
+    color: #333;
+    border-radius: 0.06rem;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size:0.16rem;
+    border:0;
+    box-sizing: border-box;
+}
+.layui-layer-btn .layui-layer-btn0 {
+    color: #da3737;
+    background: none;
+}
+.layui-layer-btn .layui-layer-btn1{
+    border:0;
+    color:#777777;
+    background: none;
+}
+/* 成功时的状态 */
+body .layer_success .layui-layer-title{
+  background: #2cbf89;
+}
+body .layer_success .layui-layer-btn{
+  background-image: none;
+}
+body .layer_success .layui-layer-btn a{
+  color:#2cbf89;
+  margin:0 auto;
+  float: none;
+  display: block;
+}
+/* 提示时的状态 */
+body .layer_tip .layui-layer-title{
+  background: #e9a617;
+}
+body .layer_tip .layui-layer-btn{
+  background-image: none;
+}
+body .layer_tip .layui-layer-btn a{
+  color:#e9a617;
+  margin:0 auto;
+  float: none;
+  display: block;
+}
+/* confirm提示时的状态 */
+body .layer_confirm .layui-layer-title{
+  background: #e9a617;
+}
+body .layer_confirm .layui-layer-btn{
+  /* background-image: none; */
+}
+body .layer_confirm .layui-layer-btn a{
+  color:#e9a617;
+}
+/* 报错提示时的状态 */
+body .layer_error .layui-layer-title{
+  /* background: #e9a617; */
+}
+body .layer_error .layui-layer-btn{
+  /* background-image: none; */
+}
+body .layer_error .layui-layer-btn a{
+  margin:0 auto;
+  float: none;
+  display: block;
+}

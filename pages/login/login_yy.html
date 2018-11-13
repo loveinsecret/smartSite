@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>用友登录</title>
+  <link rel="Shortcut Icon" href='../../image/favicon.ico'>
+  <link rel="bookmark" href="../../image/favicon.ico" />
+  <script type="text/javascript" src="../../static/config.js"></script>
+  <script src="../../js/common/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../js/common/md5.js" charset="utf-8"></script>
+  <script src="../../js/common/loading.min.js" charset="utf-8"></script>
+  <script src="../../js/common/publicClass.js" charset="utf-8"></script>
+  <script src="../../layer/layer.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    if (window != window.top) {
+      window.top.location.replace(window.location);
+      // 这是直接代替外窗，你也可以干别的
+    }
+    //获取url中的参数
+    function getUrlParam(name) {
+      //构造一个含有目标参数的正则表达式对象
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+      //匹配目标参数
+      var r = window.location.search.substr(1).match(reg);
+      //返回参数值
+      if (r != null) return decodeURI(r[2]);
+      return null;
+    }
+    var localhost = getApp().url;
+    var locationHref = window.location
+    // ?proName=共友科技&token=e10adc3949ba59abbe56e057f20f883e
+    var login = function() {
+      var userName = getUrlParam("proName");
+      var password = getUrlParam("token");
+      var url = localhost + 'login/loginCheck';
+      var data = {
+        "userName": userName,
+        "password": password
+      }
+      // console.log(data)
+      ajax_data("post", url, data, function(data) {
+        // console.log(data);
+        var dataStr = JSON.stringify(data);
+        sessionStorage.setItem('PROJECT_LOGIN', dataStr);
+        window.location.href = "../../index.html#/";
+      });
+    }
+    login();
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

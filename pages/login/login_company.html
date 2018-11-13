@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title> </title>
+  <script type="text/javascript" src="../../static/config.js"></script>
+  <script src="../../js/common/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../js/common/md5.js" charset="utf-8"></script>
+  <script src="../../js/common/loading.min.js" charset="utf-8"></script>
+  <script src="../../js/common/publicClass.js" charset="utf-8"></script>
+  <script src="../../layer/layer.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    getLogin();
+
+    function getLogin() {
+    	var localhost=getApp().url;
+      var companyUuid = getParam('companyUuid');
+      var uuid = getParam('uuid');
+      var type=getParam('type')||'';
+      var url = localhost + 'login/quickLogin';
+      var data = {
+        companyUuid: companyUuid,
+        proUuid: uuid
+      };
+      ajax_data("post", url, data, function(data) {
+        // console.log(data);
+        var dataStr = JSON.stringify(data);
+        sessionStorage.setItem('PROJECT_LOGIN', dataStr);
+        window.location.href = "../../index.html#/"+type;
+      });
+    }
+
+    function getParam(paramName) {
+      paramValue = "", isFound = !1;
+      if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {
+        arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&"), i = 0;
+        while (i < arrSource.length && !isFound) arrSource[i].indexOf("=") > 0 && arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase() && (paramValue = arrSource[i].split("=")[1], isFound = !0), i++
+      }
+      return paramValue == "" && (paramValue = null), paramValue
+    }
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

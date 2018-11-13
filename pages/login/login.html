@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <link rel = "Shortcut Icon" href='../../image/favicon.ico'>
+    <link rel="bookmark" href="../../image/favicon.ico"/>
+    <script type="text/javascript" src="../../static/config.js"></script>
+    <script src="../../js/common/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="../../js/common/setFontSize.js"></script>
+    <link rel="stylesheet" href="../../css/common/common.css">
+    <link rel="stylesheet" href="../../css/login/login.css?v=20180609">
+    <script type="text/javascript">
+      if (window != window.top) {
+        window.top.location.replace(window.location);
+        // 这是直接代替外窗，你也可以干别的
+      }
+    </script>
+  </head>
+  <body id="bodyBox">
+    <div class="loginBox">
+      <h2>智慧工地运营管理平台</h2>
+      <div class="loginCon brother">
+        <div class="codeBtn">
+          <div class="codeImg"></div>
+          <span></span>
+        </div>
+        <div class="userInfo">
+          <div><label for="userName" class="user"></label><input type="text" id="userName" autocomplete="off" style="background-color:transparent !important"></div>
+          <div><label for="password" class="pass"></label><input type="password" id="password" autocomplete="off" style="background-color:transparent !important"></div>
+          <input type="button" value="登录" id="submit">
+        </div>
+      </div>
+      <div class="QRcode brother">
+        <div class="codeBtn">
+          <div class="codeImg"></div>
+        </div>
+        <dl>
+          <dt>
+            <img src="../../image/login/1531993193.png" alt="">
+          </dt>
+          <dd>扫码下载手机APP</dd>
+        </dl>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+  // 背景图片
+  var img = new Image(); //新建一个图片对象
+  img.src = "../../image/login/backClear.jpg"; //最终显示的大图
+  img.onload = function() {
+    document.getElementById("bodyBox").style.backgroundImage = 'url(' + this.src + ')';
+  }
+</script>
+  <script src="../../js/common/md5.js" charset="utf-8"></script>
+  <script src="../../js/common/loading.min.js" charset="utf-8"></script>
+	<script src="../../js/common/publicClass.js" charset="utf-8"></script>
+  <script src="../../layer/layer.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../js/login/login.js" charset="utf-8"></script>
+</html>
