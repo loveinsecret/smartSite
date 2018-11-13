@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>智慧工地运营管理平台</title>
+		<meta name="renderer" content="webkit">
+    	<link rel = "Shortcut Icon" href='image/favicon.ico'>
+		<link rel="bookmark" href="image/favicon.ico"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<script src="js/common/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common/setFontSize.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/common/common.css?v=20180528"/>
+		<link rel="stylesheet" type="text/css" href="css/index/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/common/drop-down.css"/>
+		<script type="text/javascript" src="static/config.js"></script>
+		<script type="text/javascript" src="laydate/laydate.js"></script>
+		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.0&key=3e34c8ceacbd1beb2281dc514f68b351"></script>
+  		<link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+		<script type="text/javascript">
+			if(location.hash==''){
+				window.location.href=window.location.href+'#/';
+			}
+			var PROJECT_LOGIN=sessionStorage.getItem('PROJECT_LOGIN');
+			if(PROJECT_LOGIN==''||PROJECT_LOGIN==null){
+				window.location.href="pages/login/login.html";
+			}else{
+			}
+		</script>
+		<style type="text/css">
+			.new-loading{
+				  position: fixed;
+				  top: 0;
+				  left: 50%;
+				  z-index: 22222222222222222;
+				  display: none;
+			}
+		</style>
+	</head>
+	<body>
+	 	<div class = 'smart_home'>
+	 		<!--背景地图-->
+	 		<div id="homeMap" style="width:100%;height:100%"></div>
+	 		<!--头部-->
+	 		<div class="home_top">
+	 			<h3>智慧工地运营管理平台</h3>
+	 		</div>
+	 		<!--左侧-->
+	 		<div class="main_left">
+	 			<!--左上-->
+	 			<div class="main_left_top">
+	 				<div>
+	 					<p>项目数据</p>
+	 				</div>
+	 				<ul>
+	 					<li><p>0000</p><p>项目总数</p></li>
+	 					<li><p>0000</p><p>本年新增</p></li>
+	 				</ul>	 
+	 			</div>
+	 			<!--左中-->
+	 			<div class="main_left_middle">
+	 				<div>
+	 					<p>月项目数据 <span>333</span></p>
+	 				</div>
+	 				<!--月项目数据echart图-->
+	 				<div class="middle_echart" id="middle_echart"></div>
+	 			</div>
+	 			<!--左下-->
+	 			<div class="main_left_bottom">
+	 				<div class="bottom_switch">
+	 					<p class="left_active">省份排名</p>
+	 					<p>城市排名</p>
+	 					<p>最新项目</p>
+	 				</div>
+	 				<!--排名 echarts-->
+	 				<div  class="bottom_rank">
+	 					<p><span>所属区域</span><span>工程数量</span></p>
+	 					<div class="bottom_echart" id="bottom_echart"></div>
+	 				</div>
+	 				<!--最新项目-->
+	 				<div  class="bottom_newproject">
+	 					<p><span>项目名称</span><span>开通时间</span></p>
+	 					<div class="newproject_table">
+	 						<table class="newproject">
+		 						<tbody>
+		 							<tr><td  width="350px">圣索菲亚大教堂维修项目</td><td>12.3</td></tr>
+		 							<tr><td>圣索菲亚大教堂维修项目</td><td>12.3</td></tr>
+		 							<tr><td>圣索菲亚大教堂维修项目</td><td>12.3</td></tr>
+		 							<tr><td>圣索菲亚大教堂维修项目</td><td>12.3</td></tr>
+		 							<tr><td>圣索菲亚大教堂维修项目</td><td>12.3</td></tr>
+		 							<tr><td>圣索菲亚大教堂维修项目</td><td>12.3</td></tr>
+		 							<tr><td>圣索菲亚大教堂维修项目</td><td>12.3</td></tr>
+		 							<tr><td>圣索菲亚大教堂维修项目</td><td>12.3</td></tr>
+		 							<tr><td>圣索菲亚大教堂维修项目</td><td>12.3</td></tr>
+		 							<tr><td>圣索菲亚大教堂维修项目</td><td>12.3</td></tr>
+		 							<tr><td>圣索菲亚大教堂维修项目</td><td>12.3</td></tr>	 
+		 						</tbody> 
+	 						</table>
+	 					</div>
+	 					 
+	 				</div>
+	 			</div>
+	 		</div>
+	 		<!--右侧-->
+	 		<div class="main_right">
+	 			<!--右上-->
+	 			<div class="main_right_top">
+	 				<div>
+	 					<p>模块使用排名</p>
+	 				</div>
+	 				<!--模块使用排名echarts-->
+	 				<div class="top_echart" id="top_echart"></div>
+	 			</div>
+	 			<!--右下-->
+	 			<div class="main_right_bottom">
+	 				<div>
+	 					<p>设备使用排行</p>
+	 				</div>
+	 				<div  class="">
+	 					<p><span>排名</span><span>设备类型</span><span>数量</span></p>
+	 					<table class="equipmentRank">
+	 						<tbody>
+	 							<tr><td width="20%">1</td><td width="61%">项目大计事</td><td>202</td></tr>
+								<tr><td>2</td><td >BIM应用</td><td>123</td></tr>
+	 							<tr><td>3</td><td >BIM应用</td><td>123</td></tr>
+	 							<tr><td>4</td><td >项目大计事</td><td>202</td></tr>
+								<tr><td>5</td><td >BIM应用</td><td>123</td></tr>
+	 							<tr><td>6</td><td >BIM应用</td><td>123</td></tr>
+	 						</tbody> 
+	 					</table>
+	 				</div>
+	 			</div>
+	 		</div>
+	 	</div>
+	</body>
+ 
+	<link rel="stylesheet" type="text/css" href="css/common/easyui.css"/>
+	<link rel="stylesheet" href="css/common/animate.min.css">
+	<link rel="stylesheet" href="css/common/loading.min.css">
+	<link rel="stylesheet" href="css/common/jquery.bxslider.css">
+	<script src="js/common/jquery.bxslider.js" charset="utf-8"></script>
+	<script src="js/director.js" charset="utf-8"></script>
+	<script src="js/common/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="js/common/jquery.easyui.min.js"></script>
+	<script src="js/common/select-widget-min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="layer/layer.js" charset="utf-8"></script>
+	<script src="js/common/md5.min.js" charset="utf-8"></script>
+	<script src="js/common/loading.min.js" charset="utf-8"></script>
+	<script src="js/director.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" href="css/common/jquery.mCustomScrollbar.css">
+		<script src="js/common/publicClass.js" charset="utf-8"></script>
+	<script src="js/common/jquery.mCustomScrollbar.concat.min.js" charset="utf-8"></script>
+	<!-- <script src="js/common/echarts.simple.min.js" charset="utf-8"></script> -->
+	<script type="text/javascript" src="js/common/echarts.min.js"></script>
+	<script src="js/common/plupload-2.1.2/js/plupload.full.min.js" charset="utf-8"></script>
+	 <!--<script type="text/javascript" src="js/common/laydate/laydate_b.js"></script>-->
+	<!--<script src="js/common/echarts.common.min.js" charset="utf-8"></script>-->
+	<script src="js/index/upFileImgCertificate.js" charset="utf-8"></script>
+	<script src="js/common/china.js" charset="utf-8"></script>
+
+	<script src="js/index/index.js" type="text/javascript" charset="utf-8"></script>
+	<!-- 滚动条 -->
+	<script src="js/common/jquery.nicescroll.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+		var isIE = userAgent.indexOf('NET') != -1 && userAgent.indexOf("rv") != -1; //判断是否IE浏览器
+		var isEdge = userAgent.indexOf("Edge") > -1; //判断是否IE的Edge浏览器
+		if(isIE){
+			layer.confirm('为了您更好的浏览体验，请使用其他浏览器打开本平台',{"title":"友情提示"},function(){
+				window.location.href = 'pages/login/login.html';
+			},function(){
+				window.location.href = 'pages/login/login.html';
+			});
+			// return false;
+		}
+	</script>
+</html>
